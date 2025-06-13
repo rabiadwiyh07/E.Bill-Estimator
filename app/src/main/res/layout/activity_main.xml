@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D7E6CF"
+    android:onClick="MainActivity"
+    android:visibility="visible"
+    android:textColor="#000000"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- App Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="⚡ E.Bill Estimator ⚡"
+            android:textColor="#1E3A8A"
+            android:textSize="26sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible" />
+
+        <!-- Month Spinner -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Select Month : "
+            android:textColor="#111827"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/btn_dropdown" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Enter Year : "
+            android:textColor="#111827"
+            android:textStyle="bold" />
+
+        <!-- Year Input -->
+        <EditText
+            android:id="@+id/yearInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#93C5FD"
+            android:hint="🗓️ Enter Year (e.g. 2025)"
+            android:visibility="visible"
+            android:inputType="number"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Enter Electricity Usage (e.g 236) : "
+            android:textColor="#111827"
+            android:textStyle="bold" />
+
+        <!-- Monthly Usage -->
+        <EditText
+            android:id="@+id/editMonthlyUsage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#A7F3D0"
+            android:hint="🔌 Electricity Used (kWh)"
+            android:inputType="numberDecimal"
+            android:visibility="visible"
+            android:padding="12dp" />
+
+        <TextView
+            android:id="@+id/textTnbRates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="Refer to TNB Residential Rates:\n• 1–200 kWh: RM 0.218/kWh\n• 201–300 kWh: RM 0.334/kWh\n• 301–600 kWh: RM 0.516/kWh\n• 600+ kWh: RM 0.546/kWh\n💡 Use RM 0.50 if unsure."
+            android:textColor="#555555"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Enter Rate per kWh used (e.g 0.218): "
+            android:textColor="#111827"
+            android:textStyle="bold" />
+
+        <!-- Rate Input -->
+        <EditText
+            android:id="@+id/editRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FBCFE8"
+            android:hint="💸 Rate per kWh (RM)"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Enter Rebate % (e.g 2): "
+            android:textColor="#111827"
+            android:textStyle="bold" />
+
+        <!-- Rebate Input -->
+        <EditText
+            android:id="@+id/editRebate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#FDE68A"
+            android:hint="🎁 Rebate % (0-5)"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:visibility="visible"/>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="🧮 Calculate Bill"
+            android:textColor="#FFFFFF" />
+
+        <!-- Result Output -->
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#059669"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="visible"/>
+
+        <!-- Final Cost Output -->
+        <TextView
+            android:id="@+id/txtFinalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#1D4ED8"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</ScrollView>

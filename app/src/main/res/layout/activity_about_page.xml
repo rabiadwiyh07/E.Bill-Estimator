@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4DCEE"
+    android:padding="24dp"
+    android:textAlignment="center"
+    android:textColor="#000000">
+
+
+    <!-- Scrollable content above -->
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footerLayout"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_box"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:layout_width="314dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="ℹ️ About E.Bill Estimator"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="🧮 Full Application Name: Electricity Bill Estimator (E.Bill Estimator)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="👩‍🎓 Full Name: Rabiatuladawiyah"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="🆔 Student ID: 2023135971"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="🏫 Group : CDCS240 5A"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="📘 Course: ICT602 - Mobile Technology and Development"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textGithubUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autoLink="web"
+                android:text="🔗 GitHub Repository: https://github.com/yourusername/ebill-estimator"
+                android:textColor="#0000EE"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom footer layout with copyright + back button -->
+    <LinearLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="© 2025 Rabiatuladawiyah. All rights reserved."
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</RelativeLayout>
