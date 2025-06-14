@@ -1,66 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_yellow"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:orientation="vertical">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"
-        android:background="#D7D1AF"
-        android:padding="24dp"
-        android:text="🏠 Welcome to E.Bill Estimator 💡"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <!-- Space to push content downward -->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <!-- Centered buttons -->
-
-    <Button
-        android:id="@+id/btnToEstimator"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#49CC54"
-        android:text="⚡ Start Estimating"
+        android:background="#F6EA73"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title=""
+        app:titleTextColor="@android:color/black">
 
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏠 E.Bill Estimator 💡"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
-    <Button
-        android:id="@+id/btnToHistory"
+    <!-- Main content -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#3990D1"
-        android:text="📊 View Bill History"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <!-- Space to push content downward -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/btnToAbout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#94391C"
-        android:text="ℹ️ About This App"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btnToEstimator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#49CC54"
+            android:text="⚡ Start Estimating"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
-    <!-- Spacer at bottom to balance screen height -->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <Button
+            android:id="@+id/btnToHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#3990D1"
+            android:text="📊 View Bill History"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnToAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#94391C"
+            android:text="ℹ️ About This App"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <!-- Bottom Spacer -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         yearInput = findViewById(R.id.yearInput);
         editMonthlyUsage = findViewById(R.id.editMonthlyUsage);
         editRate = findViewById(R.id.editRate);
-        editRebate = findViewById(R.id.editRebate);
         btnCalculate = findViewById(R.id.btnCalculate);
         txtResult = findViewById(R.id.txtResult);
 
