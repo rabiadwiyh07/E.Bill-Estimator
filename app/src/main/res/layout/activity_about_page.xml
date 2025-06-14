@@ -67,7 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="👩‍🎓 Full Name: Rabiatuladawiyah"
+                android:text="👩‍🎓 Full Name: Rabiatuladawiyah Binti Mohammad Murtadza"
+                android:textAlignment="viewStart"
                 android:textSize="18sp" />
 
             <TextView
@@ -97,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:autoLink="web"
-                android:text="🔗 GitHub Repository: https://github.com/yourusername/ebill-estimator"
+                android:text="🔗 GitHub Repository: https://github.com/rabiadwiyh07/E.Bill-Estimator/tree/master"
                 android:textColor="#0000EE"
                 android:textSize="16sp" />
         </LinearLayout>
