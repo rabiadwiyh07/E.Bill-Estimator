@@ -2,7 +2,6 @@ package com.example.ebillestimator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,9 +11,10 @@ import android.widget.*;
 public class MainActivity extends AppCompatActivity {
 
     Spinner monthSpinner;
-    EditText yearInput, editMonthlyUsage, editRate, editRebate;
-    Button btnCalculate, btnviewHistory;
-    TextView txtResult;
+    EditText yearInput, editMonthlyUsage, editRate;
+    RadioGroup radioRebateGroup;
+    Button btnCalculate;
+    TextView txtResult, txtFinalCost;
 
     String selectedMonth, year;
     DBHelper dbHelper;
@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
         yearInput = findViewById(R.id.yearInput);
         editMonthlyUsage = findViewById(R.id.editMonthlyUsage);
         editRate = findViewById(R.id.editRate);
+        radioRebateGroup = findViewById(R.id.radioRebateGroup);
         btnCalculate = findViewById(R.id.btnCalculate);
         txtResult = findViewById(R.id.txtResult);
+        txtFinalCost = findViewById(R.id.txtFinalCost);
 
-        // Setup spinner
+        // Spinner setup
         String[] months = {
                 "January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
@@ -53,17 +55,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnCalculate.setOnClickListener(v -> calculateBill());
-
     }
 
     private void calculateBill() {
         String usageStr = editMonthlyUsage.getText().toString().trim();
         String rateStr = editRate.getText().toString().trim();
-        String rebateStr = editRebate.getText().toString().trim();
         year = yearInput.getText().toString().trim();
 
+        // Get selected rebate percentage
+        int selectedRebateId = radioRebateGroup.getCheckedRadioButtonId();
+        if (selectedRebateId == -1) {
+            Toast.makeText(this, "Please select a rebate percentage!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        RadioButton selectedRadio = findViewById(selectedRebateId);
+        String rebateText = selectedRadio.getText().toString().replace("%", "").trim();
+        double rebatePercent = Double.parseDouble(rebateText);
+
         // Input validation
-        if (TextUtils.isEmpty(usageStr) || TextUtils.isEmpty(rateStr) || TextUtils.isEmpty(rebateStr) || TextUtils.isEmpty(year)) {
+        if (TextUtils.isEmpty(usageStr) || TextUtils.isEmpty(rateStr) || TextUtils.isEmpty(year)) {
             Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -71,20 +82,16 @@ public class MainActivity extends AppCompatActivity {
         try {
             double kwh = Double.parseDouble(usageStr);
             double rate = Double.parseDouble(rateStr);
-            double rebatePercent = Double.parseDouble(rebateStr);
-
-            if (rebatePercent < 0 || rebatePercent > 5) {
-                Toast.makeText(this, "Rebate must be between 0% and 5%", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
             double totalCharge = kwh * rate;
             double rebateAmount = totalCharge * (rebatePercent / 100);
             double finalCost = totalCharge - rebateAmount;
 
-            String resultText = "📊 Total Charges: RM " + String.format("%.2f", totalCharge) +
-                    "\n💸 Final Cost After Rebate: RM " + String.format("%.2f", finalCost);
+            String resultText = "📊 Total Charges: RM " + String.format("%.2f", totalCharge);
+            String finalText = "💸 Final Cost After Rebate: RM " + String.format("%.2f", finalCost);
+
             txtResult.setText(resultText);
+            txtFinalCost.setText(finalText);
 
             // Save to SQLite
             SQLiteDatabase db = dbHelper.getWritableDatabase();
